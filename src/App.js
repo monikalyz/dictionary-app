@@ -6,6 +6,7 @@ import pen from "./images/pen.png";
 import check from "./images/check.png";
 import mouse from "./images/mouse.png";
 import firstPhoto from "./images/tlo.png";
+import Dictionary from "./Dictionary";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <h2>Wykonaj kilka kroków i rozpocznij naukę!</h2>
         </FirstStepTxt>
       </FirstStep>
+      <Dictionary />
     </AppWrapper>
   );
 }
