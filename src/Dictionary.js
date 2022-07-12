@@ -5,9 +5,106 @@ import flags from "./images/flags.png";
 import start from "./images/start.png";
 import checkAnswer from "./images/checkAnswer.png";
 
+const Dict = (props) => (
+  <ElementOfList>
+    <span id={props.engWord}>{props.engWord}</span>
+    <span id={props.plWord}>{props.plWord}</span>
+    <Button className="remove">usuń</Button>
+  </ElementOfList>
+);
+
+const ElementOfList = styled.li`
+  list-style: none;
+  font-size: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-right: 20%;
+  width: 80%;
+  flex-wrap: wrap;
+
+  & > span {
+    margin-right: 50px;
+    display: block;
+    min-width: 150px;
+    align-self: flex-end;
+    hyphens: auto;
+    font-weight: 300;
+  }
+
+  & > .remove {
+    font-size: 20px;
+    font-weight: 500;
+  }
+`;
 class Dictionary extends Component {
-  state = {};
+  state = {
+    engWord: "",
+    plWord: "",
+    userDictionary: [],
+    isAdd: false,
+    isItem: false,
+    txt: "pokaż słownik",
+  };
+
+  handleWriteEnglishWord = (e) => {
+    this.setState({
+      engWord: e.target.value,
+    });
+  };
+
+  handleWritePolishWord = (e) => {
+    this.setState({
+      plWord: e.target.value,
+    });
+  };
+
+  handleAddWords = () => {
+    const userDictionary = [...this.state.userDictionary];
+
+    const { engWord, plWord, isAdd } = this.state;
+
+    if (engWord && plWord !== userDictionary.length) {
+      userDictionary.push({ engWord: `${engWord}`, plWord: `${plWord}` });
+
+      this.setState({
+        userDictionary,
+        engWord: "",
+        plWord: "",
+        isAdd: !isAdd,
+      });
+    }
+  };
+
+  handleShowUserDict = () => {
+    const userDictionary = [...this.state.userDictionary];
+
+    const isItem = this.state.isItem;
+
+    if (isItem) {
+      this.setState({
+        userDictionary,
+        txt: "pokaż słownik",
+        isItem: !isItem,
+      });
+    } else {
+      this.setState({
+        userDictionary,
+        txt: "schowaj słownik",
+        isItem: !isItem,
+      });
+    }
+  };
+
   render() {
+    const { engWord, plWord, txt, isItem } = this.state;
+    const userDictionary = this.state.userDictionary.map((dict) => (
+      <Dict
+        key={dict.engWord}
+        id={dict.engWord}
+        engWord={dict.engWord}
+        plWord={dict.plWord}
+      />
+    ));
     return (
       <>
         <SecondStep>
@@ -17,20 +114,32 @@ class Dictionary extends Component {
           </h3>
 
           <label>
-            <Input placeholder="angielskie słowo" type="text" />
+            <Input
+              placeholder="angielskie słowo"
+              type="text"
+              value={engWord}
+              onChange={this.handleWriteEnglishWord}
+            />
 
-            <Input placeholder="polskie słowo" type="text" />
+            <Input
+              placeholder="polskie słowo"
+              type="text"
+              value={plWord}
+              onChange={this.handleWritePolishWord}
+            />
           </label>
 
-          <Button>
-            <img className="add" src={plus} alt="add-btn" />
+          <Button onClick={this.handleAddWords}>
+            <img src={plus} alt="add-btn" />
           </Button>
         </SecondStep>
 
         <ThirdStep>
-          <Button className="showHide">pokaż słownik</Button>
+          <Button className="showHide" onClick={this.handleShowUserDict}>
+            {txt}
+          </Button>
 
-          <ul>lista ze słówkami</ul>
+          <ul>{isItem ? userDictionary : null}</ul>
         </ThirdStep>
 
         <FourthStep>
