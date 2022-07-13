@@ -46,6 +46,8 @@ class Dictionary extends Component {
     isAdd: false,
     isItem: false,
     txt: "pokaż słownik",
+    language: "eng",
+    value: "",
   };
 
   handleWriteEnglishWord = (e) => {
@@ -107,8 +109,15 @@ class Dictionary extends Component {
     });
   }
 
+  handleSelect = (e) => {
+    this.setState({
+      language: e.target.value,
+      value: "",
+    });
+  };
+
   render() {
-    const { engWord, plWord, txt, isItem } = this.state;
+    const { engWord, plWord, txt, isItem, language } = this.state;
     const userDictionary = this.state.userDictionary.map((dict) => (
       <Dict
         key={dict.engWord}
@@ -160,9 +169,9 @@ class Dictionary extends Component {
             <h3>Wybierz język losowanego słówka</h3>
 
             <label>
-              <select>
-                <option>angielski</option>
-                <option>polski</option>
+              <select value={language} onChange={this.handleSelect}>
+                <option value="eng">angielski</option>
+                <option value="pl">polski</option>
               </select>
             </label>
           </ChooseLang>
