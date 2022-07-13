@@ -9,7 +9,9 @@ const Dict = (props) => (
   <ElementOfList>
     <span id={props.engWord}>{props.engWord}</span>
     <span id={props.plWord}>{props.plWord}</span>
-    <Button className="remove">usuń</Button>
+    <Button className="remove" onClick={props.delete}>
+      usuń
+    </Button>
   </ElementOfList>
 );
 
@@ -95,6 +97,16 @@ class Dictionary extends Component {
     }
   };
 
+  handleDelete(engWord) {
+    const userDictionary = [...this.state.userDictionary];
+    const index = userDictionary.findIndex((dict) => dict.engWord === engWord);
+    userDictionary.splice(index, 1);
+
+    this.setState({
+      userDictionary,
+    });
+  }
+
   render() {
     const { engWord, plWord, txt, isItem } = this.state;
     const userDictionary = this.state.userDictionary.map((dict) => (
@@ -103,6 +115,7 @@ class Dictionary extends Component {
         id={dict.engWord}
         engWord={dict.engWord}
         plWord={dict.plWord}
+        delete={this.handleDelete.bind(this, engWord)}
       />
     ));
     return (
