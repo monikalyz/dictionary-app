@@ -48,6 +48,8 @@ class Dictionary extends Component {
     txt: "pokaż słownik",
     language: "eng",
     value: "",
+    wordENG: "",
+    wordPL: "",
   };
 
   handleWriteEnglishWord = (e) => {
@@ -116,8 +118,26 @@ class Dictionary extends Component {
     });
   };
 
+  handleDrawWord = () => {
+    const userDictionary = [...this.state.userDictionary];
+    const isItem = this.state.isItem;
+    const index = Math.floor(Math.random() * userDictionary.length);
+
+    if (!isItem) {
+      this.setState({
+        wordENG: userDictionary[index].engWord,
+        wordPL: userDictionary[index].plWord,
+      });
+    }
+
+    this.setState({
+      value: "",
+    });
+  };
+
   render() {
-    const { engWord, plWord, txt, isItem, language } = this.state;
+    const { engWord, plWord, txt, isItem, language, wordENG, wordPL } =
+      this.state;
     const userDictionary = this.state.userDictionary.map((dict) => (
       <Dict
         key={dict.engWord}
@@ -185,11 +205,11 @@ class Dictionary extends Component {
           <Start>
             <h3>Naciśnij PLAY i wylosuj słowo</h3>
 
-            <LongerBtn>
+            <LongerBtn onClick={this.handleDrawWord}>
               <img src={start} alt="draw-btn" />
             </LongerBtn>
 
-            <DrawWord>wylosowane słówko</DrawWord>
+            <DrawWord>{language === "eng" ? wordENG : wordPL}</DrawWord>
           </Start>
 
           <Answer>
