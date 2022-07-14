@@ -128,6 +128,8 @@ class Dictionary extends Component {
         wordENG: userDictionary[index].engWord,
         wordPL: userDictionary[index].plWord,
       });
+    } else {
+      alert("ukryj słownik");
     }
 
     this.setState({
@@ -135,8 +137,42 @@ class Dictionary extends Component {
     });
   };
 
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  };
+
+  handleCheckWord = () => {
+    const { language, value, wordENG, wordPL } = this.state;
+    const userDictionary = [...this.state.userDictionary];
+    const indexENG = userDictionary.findIndex((dict) => dict.engWord === value);
+    const indexPL = userDictionary.findIndex((dict) => dict.plWord === value);
+
+    if (value === "") return;
+    else if (language === "eng") {
+      if (value === wordPL) {
+        userDictionary.splice(indexPL, 1);
+
+        this.setState({
+          value: wordPL,
+          userDictionary,
+        });
+      }
+    } else {
+      if (value === wordENG) {
+        userDictionary.splice(indexENG, 1);
+
+        this.setState({
+          value: wordENG,
+          userDictionary,
+        });
+      }
+    }
+  };
+
   render() {
-    const { engWord, plWord, txt, isItem, language, wordENG, wordPL } =
+    const { engWord, plWord, txt, isItem, language, wordENG, wordPL, value } =
       this.state;
     const userDictionary = this.state.userDictionary.map((dict) => (
       <Dict
@@ -217,9 +253,14 @@ class Dictionary extends Component {
               Wpisz odpowiedź i sprawdź czy jest poprawna naciskając przycisk
             </h3>
 
-            <InputAnswer placeholder="wpisz odpowiedź" type="text" />
+            <InputAnswer
+              placeholder="wpisz odpowiedź"
+              type="text"
+              value={value}
+              onChange={this.handleChange}
+            />
 
-            <Button className="checkBtn">
+            <Button className="checkBtn" onClick={this.handleCheckWord}>
               <img src={checkAnswer} alt="check-btn"></img>
             </Button>
 
