@@ -50,11 +50,21 @@ class Dictionary extends Component {
     value: "",
     wordENG: "",
     wordPL: "",
+    answer: "",
   };
 
   handleWriteEnglishWord = (e) => {
     this.setState({
       engWord: e.target.value,
+    });
+  };
+
+  handleClickedInput = () => {
+    this.setState({
+      answer: "",
+      wordENG: "",
+      wordPL: "",
+      value: "",
     });
   };
 
@@ -108,6 +118,10 @@ class Dictionary extends Component {
 
     this.setState({
       userDictionary,
+      value: "",
+      answer: "",
+      wordENG: "",
+      wordPL: "",
     });
   }
 
@@ -115,6 +129,9 @@ class Dictionary extends Component {
     this.setState({
       language: e.target.value,
       value: "",
+      answer: "",
+      wordENG: "",
+      wordPL: "",
     });
   };
 
@@ -134,6 +151,7 @@ class Dictionary extends Component {
 
     this.setState({
       value: "",
+      answer: "",
     });
   };
 
@@ -157,6 +175,11 @@ class Dictionary extends Component {
         this.setState({
           value: wordPL,
           userDictionary,
+          answer: "dobrze!",
+        });
+      } else {
+        this.setState({
+          answer: "spróbuj jeszcze raz",
         });
       }
     } else {
@@ -166,14 +189,28 @@ class Dictionary extends Component {
         this.setState({
           value: wordENG,
           userDictionary,
+          answer: "dobrze!",
+        });
+      } else {
+        this.setState({
+          answer: "spróbuj jeszcze raz",
         });
       }
     }
   };
 
   render() {
-    const { engWord, plWord, txt, isItem, language, wordENG, wordPL, value } =
-      this.state;
+    const {
+      engWord,
+      plWord,
+      txt,
+      isItem,
+      language,
+      wordENG,
+      wordPL,
+      value,
+      answer,
+    } = this.state;
     const userDictionary = this.state.userDictionary.map((dict) => (
       <Dict
         key={dict.engWord}
@@ -197,6 +234,7 @@ class Dictionary extends Component {
               type="text"
               value={engWord}
               onChange={this.handleWriteEnglishWord}
+              onClick={this.handleClickedInput}
             />
 
             <Input
@@ -204,6 +242,7 @@ class Dictionary extends Component {
               type="text"
               value={plWord}
               onChange={this.handleWritePolishWord}
+              onClick={this.handleClickedInput}
             />
           </label>
 
@@ -264,7 +303,7 @@ class Dictionary extends Component {
               <img src={checkAnswer} alt="check-btn"></img>
             </Button>
 
-            <Message>odpowiedź</Message>
+            <Message>{answer}</Message>
           </Answer>
         </FifthStep>
 
