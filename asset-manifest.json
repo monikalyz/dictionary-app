@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/dictionary-app/static/css/main.e6c13ad2.css",
+    "main.js": "/dictionary-app/static/js/main.b6c4f832.js",
+    "static/js/787.b2458070.chunk.js": "/dictionary-app/static/js/787.b2458070.chunk.js",
+    "static/media/bg.png": "/dictionary-app/static/media/bg.44af478637b5be9075a7.png",
+    "static/media/bodybg.png": "/dictionary-app/static/media/bodybg.4424b14584f8e71f7db7.png",
+    "static/media/flags.png": "/dictionary-app/static/media/flags.a4f7efb6a644130cd3c4.png",
+    "static/media/tlo.png": "/dictionary-app/static/media/tlo.5c1e31350ff589f3317c.png",
+    "static/media/start.png": "/dictionary-app/static/media/start.60974fc39eaa2ec2aa64.png",
+    "static/media/check.png": "/dictionary-app/static/media/check.6f85ef5c6a919eada990.png",
+    "static/media/mouse.png": "/dictionary-app/static/media/mouse.bf3c792f5c484cf9968c.png",
+    "static/media/pen.png": "/dictionary-app/static/media/pen.9eb8a12d2a58c7121c1d.png",
+    "static/media/checkAnswer.png": "/dictionary-app/static/media/checkAnswer.29ebd9b63a4e2818cdfc.png",
+    "static/media/plus.png": "/dictionary-app/static/media/plus.d880dee7d6b99e377f0a.png",
+    "static/media/portrait.svg": "/dictionary-app/static/media/portrait.9c625ef4d3584639c7f29c3eb018a511.svg",
+    "index.html": "/dictionary-app/index.html",
+    "main.e6c13ad2.css.map": "/dictionary-app/static/css/main.e6c13ad2.css.map",
+    "main.b6c4f832.js.map": "/dictionary-app/static/js/main.b6c4f832.js.map",
+    "787.b2458070.chunk.js.map": "/dictionary-app/static/js/787.b2458070.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b6c4f832.js"
+  ]
+}
