@@ -24,6 +24,14 @@ const ElementOfList = styled.li`
   width: 80%;
   flex-wrap: wrap;
 
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 35px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 50px;
+  }
+
   & > span {
     margin-right: 50px;
     display: block;
@@ -31,11 +39,35 @@ const ElementOfList = styled.li`
     align-self: flex-end;
     hyphens: auto;
     font-weight: 300;
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 30px;
+    }
+
+    @media (orientation: landscape) and (min-height: 820px) {
+      font-size: 35px;
+    }
   }
 
   & > .remove {
     font-size: 20px;
     font-weight: 500;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 35px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 30px;
+    }
+
+    @media (orientation: landscape) and (min-height: 800px) {
+      font-size: 35px;
+    }
   }
 `;
 class Dictionary extends Component {
@@ -329,15 +361,45 @@ const SecondStep = styled.section`
   padding: 10%;
   border-top: 5px solid whitesmoke;
 
+  @media (orientation: landscape) and (max-width: 1000px) {
+    flex-direction: row;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    flex-direction: row;
+    height: 80vh;
+  }
+
   & > h3 {
     font-size: 30px;
     display: block;
     flex-basis: 40%;
     font-weight: 300;
+
+    @media (min-width: 500px) and (min-height: 700px) and (orientation: portrait) {
+      margin: 0 15%;
+    }
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      margin-top: 10vh;
+      font-size: 35px;
+    }
   }
 
   & > label {
     flex-basis: 30%;
+
+    @media (orientation: landscape) {
+      margin: 5%;
+    }
   }
 `;
 
@@ -357,10 +419,47 @@ const Input = styled.input`
   font-weight: 400;
   text-align: center;
 
+  @media (min-width: 400px) and (min-height: 700px) and (orientation: portrait) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 500px) and (min-height: 700px) and (orientation: portrait) {
+    margin: 0 15%;
+  }
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 35px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 50px;
+    margin: 0 10%;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    font-size: 35px;
+  }
+
   &::placeholder {
     color: #140a03;
     font-size: 24px;
     font-weight: 300;
+
+    @media (min-width: 400px) and (min-height: 700px) and (orientation: portrait) {
+      font-size: 26px;
+    }
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 35px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 40px;
+    }
   }
 `;
 
@@ -371,6 +470,18 @@ const Button = styled.button`
 
   & > img {
     background-color: transparent;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      width: 100px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      width: 150px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      width: 100px;
+    }
   }
 
   & > img:hover {
@@ -394,6 +505,18 @@ const ThirdStep = styled.section`
     padding-right: 5%;
     font-weight: 400;
     z-index: 1;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 35px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 35px;
+    }
   }
 
   & > ul {
@@ -413,6 +536,14 @@ const FourthStep = styled.section`
   align-items: center;
   height: 100vh;
   background-color: #cdaaae;
+
+  @media (orientation: landscape) {
+    flex-direction: row;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    height: 70vh;
+  }
 `;
 
 const ChooseLang = styled.div`
@@ -422,14 +553,46 @@ const ChooseLang = styled.div`
   align-items: center;
   margin: 0 10%;
 
+  @media (orientation: landscape) and (min-width: 1001px) {
+    align-items: flex-start;
+  }
+
   & > h3 {
     font-size: 24px;
     font-weight: 300;
     padding-bottom: 20%;
+
+    @media (min-width: 400px) and (min-height: 700px) and (orientation: portrait) {
+      font-size: 26px;
+      margin: 0 10%;
+    }
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 40px;
+      margin: 0 20%;
+      padding-bottom: 10%;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+      margin: 0 10%;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 40px;
+    }
   }
 
   & > label {
     padding: 10% 0;
+
+    @media (min-width: 400px) and (min-height: 700px) and (orientation: portrait) {
+      padding: 0%;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      padding: 0%;
+    }
   }
 
   & > label > select {
@@ -440,6 +603,30 @@ const ChooseLang = styled.div`
     border-radius: 5px;
     background-color: #ca989e;
     border-color: #fff;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      width: 250px;
+      height: 65px;
+      font-size: 40px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+      width: 350px;
+      height: 70px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      font-size: 30px;
+      width: 250px;
+      height: 50px;
+    }
+
+    @media (orientation: landscape) and (min-height: 800px) {
+      font-size: 40px;
+      width: 300px;
+      height: 60px;
+    }
   }
 
   & > label > select > option:hover {
@@ -456,6 +643,25 @@ const FourthStepPhoto = styled.div`
   & > img {
     border: 5px solid white;
     width: 40vh;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      width: 50vh;
+    }
+
+    @media (orientation: landscape) and (max-width: 1000px) {
+      width: 60vh;
+      margin: 5vh;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      width: 60vh;
+      margin: 30vh 10vh 5vh 5vh;
+    }
+
+    @media (orientation: landscape) and (min-height: 750px) {
+      width: 50vh;
+      margin: 30vh 10vh 5vh 5vh;
+    }
   }
 `;
 
@@ -465,6 +671,10 @@ const FifthStep = styled.section`
   justify-content: center;
   background-color: #b1bdc0;
   border-top: 5px solid whitesmoke;
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    flex-direction: row;
+  }
 `;
 
 const Start = styled.div`
@@ -474,12 +684,34 @@ const Start = styled.div`
   justify-content: center;
   padding: 5%;
 
+  @media (orientation: landscape) and (min-width: 1001px) {
+    align-self: flex-start;
+    height: 100vh;
+    border-right: 2px white solid;
+  }
+
   & > h3 {
     font-size: 30px;
     flex-basis: 20%;
     font-weight: 300;
     padding-top: 10%;
     text-align: center;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      justify-self: flex-end;
+    }
+
+    @media (orientation: landscape) and (min-height: 800px) {
+      font-size: 40px;
+    }
   }
 `;
 
@@ -487,6 +719,20 @@ const LongerBtn = styled(Button)`
   align-self: center;
   flex-basis: 20%;
   padding-top: 10%;
+
+  & > img {
+    @media (min-width: 700px) and (orientation: portrait) {
+      width: 250px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      width: 300px;
+    }
+
+    @media (orientation: landscape) and (min-width: 1001px) {
+      width: 250px;
+    }
+  }
 
   & > img:hover {
     border-radius: 50px;
@@ -500,6 +746,18 @@ const DrawWord = styled.div`
   font-weight: 300;
   padding: 20% 0;
   border-color: whitesmoke;
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 70px;
+  }
+
+  @media (orientation: landscape) and (max-width: 1000px) {
+    padding: 10% 0;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    padding: 20% 0;
+  }
 `;
 
 const Answer = styled.div`
@@ -510,28 +768,80 @@ const Answer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media (min-width: 500px) and (min-height: 700px) and (orientation: portrait) {
+    align-items: center;
+  }
+
+  @media (orientation: landscape) and (max-width: 1000px) {
+    width: 50%;
+    transform: translateX(50%);
+    padding-right: 0%;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    margin-top: 30vh;
+  }
+
   & > h3 {
     font-size: 25px;
     margin-bottom: 5%;
     padding-left: 5%;
     font-weight: 300;
     text-align: center;
+
+    @media (min-width: 700px) and (orientation: portrait) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 900px) and (orientation: portrait) {
+      font-size: 50px;
+      padding-bottom: 50px;
+    }
+
+    @media (orientation: landscape) and (min-height: 800px) {
+      font-size: 30px;
+      padding-bottom: 50px;
+    }
   }
 
   & > .checkBtn {
     flex-basis: 30%;
     padding-top: 5%;
+
+    @media (min-width: 500px) and (min-height: 700px) and (orientation: portrait) {
+      padding-top: 10%;
+    }
   }
 `;
 
 const InputAnswer = styled(Input)`
   padding-left: 20px;
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 50px;
+  }
 `;
 
 const Message = styled.div`
   font-size: 30px;
   font-weight: 300;
   padding: 10% 0;
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 50px;
+  }
+
+  @media (orientation: landscape) and (min-height: 800px) {
+    font-size: 35px;
+  }
 `;
 
 const FinalInfo = styled.h4`
@@ -541,6 +851,20 @@ const FinalInfo = styled.h4`
   padding: 10px 100px 10px 10px;
   display: flex;
   justify-content: right;
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 50px;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    padding: 20px;
+    justify-content: left;
+    font-size: 25px;
+  }
 `;
 
 const Footer = styled.footer`
@@ -550,6 +874,20 @@ const Footer = styled.footer`
   background-color: #140a03;
   text-align: center;
   padding: 20px 5px;
+
+  @media (min-width: 700px) and (orientation: portrait) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 900px) and (orientation: portrait) {
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  @media (orientation: landscape) and (min-width: 1001px) {
+    padding: 20px;
+    font-size: 20px;
+  }
 `;
 
 export default Dictionary;
